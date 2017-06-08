@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta content="text/html" charset="UTF-8"/>
+    <title>login</title>
+    <link rel="stylesheet" th:href="@{css/bootstrap.css}"/>
+    <style type="text/css">
+        body {
+            padding-top: 50px;
+        }
+        .starter-template {
+            padding: 40px 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">spring security test</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a th:href="@{/}">首页</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="starter-template">
+            <p th:if="${param.logout}" class="bg-warning">已注销成功</p>
+            <p th:if="${param.error}" class="bg-denger">有错误，请重试！</p>
+            <h2>登陆</h2>
+            <form name="form" th:action="@{/login}" method="post">
+                <div class="form-group">
+                    <label th:for="username">账号</label>
+                    <input type="text" class="form-control" name="username"/>
+                </div>
+                <div class="form-group">
+                    <label th:for="password">密码</label>
+                    <input type="password" class="form-control" name="password"/>
+                </div>
+                <input type="submit" id="login" th:value="Login" class="btn btn-primary"/>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
